@@ -1,0 +1,130 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-height: 100vh;
+  background: #353540;
+}
+
+.l-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  grid-gap: 30px;
+  width: 100%;
+  max-width: 1200px;
+  padding: 30px;
+}
+
+@media screen and (max-width: 760px) {
+  .l-container {
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.b-game-card {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding-bottom: 150%;
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
+}
+
+.b-game-card__cover {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+  background-size: cover;
+  -webkit-perspective-origin: 50% 50%;
+          perspective-origin: 50% 50%;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-transform-origin: top center;
+          transform-origin: top center;
+  will-change: transform;
+  -webkit-transform: skewX(0.001deg);
+          transform: skewX(0.001deg);
+  -webkit-transition: -webkit-transform 0.35s ease-in-out;
+  transition: -webkit-transform 0.35s ease-in-out;
+  transition: transform 0.35s ease-in-out;
+  transition: transform 0.35s ease-in-out, -webkit-transform 0.35s ease-in-out;
+}
+
+.b-game-card__cover::after {
+  display: block;
+  content: "";
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120%;
+  background: linear-gradient(226deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.4) 35%, rgba(255, 255, 255, 0.2) 42%, rgba(255, 255, 255, 0) 60%);
+  -webkit-transform: translateY(-20%);
+          transform: translateY(-20%);
+  will-change: transform;
+  -webkit-transition: -webkit-transform 0.65s cubic-bezier(0.18, 0.9, 0.58, 1);
+  transition: -webkit-transform 0.65s cubic-bezier(0.18, 0.9, 0.58, 1);
+  transition: transform 0.65s cubic-bezier(0.18, 0.9, 0.58, 1);
+  transition: transform 0.65s cubic-bezier(0.18, 0.9, 0.58, 1), -webkit-transform 0.65s cubic-bezier(0.18, 0.9, 0.58, 1);
+}
+
+.b-game-card:hover .b-game-card__cover {
+  -webkit-transform: rotateX(7deg) translateY(-6px);
+          transform: rotateX(7deg) translateY(-6px);
+}
+
+.b-game-card:hover .b-game-card__cover::after {
+  -webkit-transform: translateY(0%);
+          transform: translateY(0%);
+}
+
+.b-game-card::before {
+  display: block;
+  content: "";
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  width: 90%;
+  height: 90%;
+  background: rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0 6px 12px 12px rgba(0, 0, 0, 0.4);
+          box-shadow: 0 6px 12px 12px rgba(0, 0, 0, 0.4);
+  will-change: opacity;
+  -webkit-transform-origin: top center;
+          transform-origin: top center;
+  -webkit-transform: skewY(0.001deg);
+          transform: skewY(0.001deg);
+  -webkit-transition: opacity 0.5s ease-in-out, -webkit-transform 0.35s ease-in-out;
+  transition: opacity 0.5s ease-in-out, -webkit-transform 0.35s ease-in-out;
+  transition: transform 0.35s ease-in-out, opacity 0.5s ease-in-out;
+  transition: transform 0.35s ease-in-out, opacity 0.5s ease-in-out, -webkit-transform 0.35s ease-in-out;
+}
+
+.b-game-card:hover::before {
+  opacity: 0.6;
+  -webkit-transform: rotateX(7deg) translateY(-6px) scale(1.05);
+          transform: rotateX(7deg) translateY(-6px) scale(1.05);
+}
+/*# sourceMappingURL=style.css.map */
